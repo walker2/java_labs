@@ -1,4 +1,4 @@
-package utils;
+package lab8.src.utils;
 
 import java.util.concurrent.TimeUnit;
 

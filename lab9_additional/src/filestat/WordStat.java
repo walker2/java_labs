@@ -1,3 +1,5 @@
+package lab9_additional.src.filestat;
+
 import java.util.HashMap;
 import java.util.Map;
 

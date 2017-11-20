@@ -1,4 +1,5 @@
-package matrix;
+package lab8.src.matrix;
+
 
 import java.util.Random;
 

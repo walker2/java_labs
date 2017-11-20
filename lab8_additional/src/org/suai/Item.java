@@ -1,4 +1,4 @@
-package org.suai;
+package lab8_additional.src.org.suai;
 
 public class Item {
     private String name;

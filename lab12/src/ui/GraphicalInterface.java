@@ -1,8 +1,8 @@
-package src.ui;
-
-import src.client.Client;
+package lab12.src.ui;
+import lab12.src.client.Client;
 
 import javax.swing.*;
+import javax.swing.text.DefaultCaret;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -15,6 +15,7 @@ public class GraphicalInterface extends JPanel implements KeyListener {
 
     private JTextPane chatBox;
     private JTextField messageBox;
+    private JScrollPane chatScroll;
     private transient Client.InputHandler client;
     private static final int WINDOW_HEIGHT = 300;
     private static final int WINDOW_WIDTH = 400;
@@ -31,10 +32,14 @@ public class GraphicalInterface extends JPanel implements KeyListener {
         this.setLayout(new BorderLayout());
 
         chatBox = new JTextPane();
+        chatScroll = new JScrollPane(chatBox);
+        DefaultCaret caret = (DefaultCaret)chatBox.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+
         messageBox = new JTextField();
         messageBox.setSize(WIDTH, 30);
 
-        this.add(chatBox, BorderLayout.CENTER);
+        this.add(chatScroll, BorderLayout.CENTER);
         this.add(messageBox, BorderLayout.PAGE_END);
         messageBox.addKeyListener(this);
         chatBox.setEditable(false);

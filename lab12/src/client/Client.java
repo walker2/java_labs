@@ -9,9 +9,10 @@
  Сервер представляет собой казино. Сервер объявляет начало тура. После этого в течении 10 секунд пользователи
  могут сделать ставку на число (@bet number). После этого сервер разыгрывает число и объявляет победителя.
 */
-package src.client;
+package lab12.src.client;
 
-import src.ui.GraphicalInterface;
+
+import lab12.src.ui.GraphicalInterface;
 
 import java.net.*;
 import java.io.*;
@@ -40,7 +41,7 @@ public class Client implements Runnable {
         InputHandler client = new InputHandler(socket);
         this.ui = new GraphicalInterface(client);
         ui.writeText("Use \"@name %your-name%\" to define your username.\nType message and press enter to send it\n" +
-                "Use @stop to exit program\n" +  "You can type \"@casino\" to start casino lottery");
+                "Use @stop to exit program\n" + "You can type \"@casino\" to start casino lottery");
         new Thread(client).start();
     }
 
@@ -87,7 +88,7 @@ public class Client implements Runnable {
                 socket.close();
             }
 
-           System.exit(0);
+            System.exit(0);
         }
 
 

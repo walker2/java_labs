@@ -1,6 +1,7 @@
-import matrix.IMatrix;
-import matrix.UsualMatrix;
-import utils.TimeWatch;
+package lab8.src.product;
+
+import lab8.src.matrix.*;
+import lab8.src.utils.*;
 
 import java.util.Random;
 

@@ -1,7 +1,8 @@
-package src.server;
+package lab12.src.server;
 
 import java.net.*;
 import java.io.*;
+import java.sql.Time;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +25,7 @@ public class Server implements Runnable {
         try {
             socket = new ServerSocket(port);
             names = new HashMap<>();
+            bets = new HashMap<>();
         } catch (IOException e) {
             logger.log(Level.SEVERE, exceptionLiteral, e);
         }
@@ -99,21 +101,40 @@ public class Server implements Runnable {
             }
             for (Map.Entry<String, Socket> entry : names.entrySet()) {
                 send(entry.getValue(), "Someone have started casino lottery \n *************************** \n" +
-                        "WIN BIG WIN BIG WIN BIG WIN BIG\nCurrent pool: " + pool
-                        + "\tTYPE @bet number (between 1 and 100) \nAll participants: " + allNames
+                        "WIN B$$$G WIN B$$$G WIN B$$$G WIN B$$$G\nCurrent pool: " + pool
+                        + "\nTYPE @bet number (between 1 and 10) \nAll participants: " + allNames
                         + "\nYou have 10 seconds");
             }
             roundNum++;
             roundStarted = true;
 
             Random rng = new Random();
-            numberGuessed = rng.nextInt(100);
+            numberGuessed = rng.nextInt(10);
             long seconds = 10;
 
+            new Timer().scheduleAtFixedRate(new CounterTask(seconds), 1000, 1000);
             new Timer().schedule(new EndCasinoTask(), seconds * 1000);
-
         }
 
+        class CounterTask extends TimerTask {
+            private long allSeconds = -1;
+
+            CounterTask(long allSeconds) {this.allSeconds = allSeconds;}
+
+            public void run() {
+                try {
+                    if (allSeconds <= 1) {
+                        this.cancel();
+                    }
+                    for (Map.Entry<String, Socket> entry : names.entrySet()) {
+                        send(entry.getValue(), "Only " + allSeconds + " seconds left to vote!");
+                    }
+                    allSeconds--;
+                } catch (IOException e) {
+                    logger.log(Level.SEVERE, exceptionLiteral, e);
+                }
+            }
+        }
         class EndCasinoTask extends TimerTask {
             public void run() {
                 try {
@@ -140,7 +161,7 @@ public class Server implements Runnable {
                     for (Map.Entry<String, Socket> entry : names.entrySet()) {
                         send(entry.getValue(), winner.toString());
                     }
-
+                    bets.clear();
 
                 } catch (IOException e) {
                     logger.log(Level.SEVERE, exceptionLiteral, e);
@@ -164,10 +185,8 @@ public class Server implements Runnable {
             if (receivedString.equals("@stop")) {
                 closeAndRemove();
 
-            } else if (!receivedString.contains(" ")) {
-                send(clientSocket, ">>>Invalid command");
-
-            } else if (receivedString.startsWith("@name")) {
+            }
+            else if (receivedString.startsWith("@name")) {
                 String newName = receivedString.substring(6, receivedString.length());
                 if (names.containsKey(newName)) {
                     send(clientSocket, ">>>Your desired name is taken");
@@ -178,7 +197,8 @@ public class Server implements Runnable {
                     send(clientSocket, ">>>Your name is now " + name);
                 }
 
-            } else if (receivedString.startsWith("@senduser")) {
+            }
+            else if (receivedString.startsWith("@senduser")) {
 
                 int firstSpace = receivedString.indexOf(' ');
                 String afterCommand = receivedString.substring(firstSpace + 1, receivedString.length());
@@ -187,26 +207,33 @@ public class Server implements Runnable {
 
                 if (!names.containsKey(targetName)) {
                     send(clientSocket, ">>>No user with such name found");
-                } else {
+                }
+                else {
                     send(names.get(targetName), "[private]" + name + ":" + message);
                     send(clientSocket, String.format("[to %s] : %s", targetName, message));
                 }
-            } else if (receivedString.startsWith("@casino")) {
+            }
+            else if (receivedString.startsWith("@casino")) {
                 startRound();
-            } else if (receivedString.startsWith("@bet")) {
+            }
+            else if (receivedString.startsWith("@bet")) {
                 if (roundStarted) {
                     Integer bettingNumber = Integer.parseInt(receivedString.substring(5, receivedString.length()));
+
                     if (bets.containsKey(name)) {
                         send(clientSocket, ">>>You can't place more bets");
-                    } else {
+                    }
+                    else {
                         bets.put(name, bettingNumber);
                         send(clientSocket, ">>>Your bet of " + bettingNumber + " has been registered");
                     }
-                } else {
+                }
+                else {
                     send(clientSocket, ">>>You can bet right now");
                 }
 
-            } else {
+            }
+            else {
                 send(clientSocket, ">>>Invalid command");
             }
         }
@@ -221,7 +248,7 @@ public class Server implements Runnable {
     }
 
     public static void main(String[] args) {
-        Server serverObj = new Server(5000);
+        Server serverObj = new Server(5775);
         new Thread(serverObj).start();
 
         Scanner scanner = new Scanner(System.in);

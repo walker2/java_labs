@@ -1,4 +1,4 @@
-package clients;
+package lab11.src.clients;
 
 import java.io.IOException;
 import java.net.DatagramPacket;

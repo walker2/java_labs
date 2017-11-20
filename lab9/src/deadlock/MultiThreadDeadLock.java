@@ -1,5 +1,8 @@
-import banking.accounts.Account;
-import banking.accounts.AccountTransfer;
+package lab9.src.deadlock;
+
+
+import lab9.src.banking.accounts.Account;
+import lab9.src.banking.accounts.AccountTransfer;
 
 class MultiThreadDeadLock {
 
