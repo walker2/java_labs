@@ -1,17 +1,19 @@
 /*
-Написать текстовый многопользовательский чат.
-Пользователь управляет клиентом. На сервере пользователя нет. Сервер занимается пересылкой сообщений между клиентами.
-По умолчанию сообщение посылается всем участникам чата.
-Есть команда послать сообщение конкретному пользователю (@senduser Vasya).
-Программа работает по протоколу TCP.
+    Написать текстовый многопользовательский чат.
+    Пользователь управляет клиентом. На сервере пользователя нет. Сервер занимается пересылкой сообщений между клиентами.
+    По умолчанию сообщение посылается всем участникам чата.
+    Есть команда послать сообщение конкретному пользователю (@senduser Vasya).
+    Программа работает по протоколу TCP.
 
-+ Доп:
- Сервер представляет собой казино. Сервер объявляет начало тура. После этого в течении 10 секунд пользователи
- могут сделать ставку на число (@bet number). После этого сервер разыгрывает число и объявляет победителя.
+    + Доп:
+     Сервер представляет собой казино. Сервер объявляет начало тура. После этого в течении 10 секунд пользователи
+     могут сделать ставку на число (@bet number). После этого сервер разыгрывает число и объявляет победителя.
 */
+// TODO: Распихать отчеты по src
+// TODO: Прикрутить maven
+// TODO: Сделать скриншоты по чётче
+
 package lab12.src.client;
-
-
 import lab12.src.ui.GraphicalInterface;
 
 import java.net.*;
@@ -33,7 +35,6 @@ public class Client implements Runnable {
 
             logger.log(Level.SEVERE, exceptionLiteral, e);
         }
-
     }
 
     @Override
@@ -77,11 +78,9 @@ public class Client implements Runnable {
             }
         }
 
-
         public void send(String text) {
             writer.println(text);
         }
-
 
         void close() throws IOException {
             if (!socket.isClosed()) {
@@ -90,7 +89,6 @@ public class Client implements Runnable {
 
             System.exit(0);
         }
-
 
         private String receiveString(BufferedReader buff) throws IOException {
             String receivedString = null;
@@ -108,6 +106,6 @@ public class Client implements Runnable {
     }
 
     public static void main(String[] args) {
-        new Thread(new Client("localhost", 5000)).start();
+        new Thread(new Client("localhost", 5775)).start();
     }
 }
