@@ -17,8 +17,7 @@ public class WordFinder extends Thread {
     public void run() {
         System.out.println("Scanning file " + filePath + " with " + this.getName());
         File file = new File(filePath);
-        try {
-            Scanner sc = new Scanner(new FileInputStream(file));
+        try (Scanner sc = new Scanner(new FileInputStream(file))) {
             synchronized (stat) {
                 while (sc.hasNext()) {
                     String next = sc.next();

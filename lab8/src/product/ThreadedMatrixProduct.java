@@ -122,14 +122,11 @@ public class ThreadedMatrixProduct {
                 matrix4.setElement(i, j, 17);
             }
         }
-        System.out.println("Matrix C: \n" + matrix3);
-        System.out.println("Matrix D: \n" + matrix4);
         timeWatch = TimeWatch.start();
         // Calculate multithreaded matrix product
         UsualMatrix resultMult2 = (UsualMatrix) tmp.threadedProduct(matrix3, matrix4, 4);
         passedTime = timeWatch.time();
 
-        System.out.println("Multithreaded C x D \n" + resultMult2);
         System.out.println("Multithreading product time on 4 threads: " + passedTime + " ms");
 
         timeWatch = TimeWatch.start();
@@ -137,8 +134,6 @@ public class ThreadedMatrixProduct {
         IMatrix result = matrix1.product(matrix2);
         passedTime = timeWatch.time();
 
-        //System.out.println("Multithreaded A x B \n" + result);
-        System.out.println("Standard product time: " + passedTime + " ms");
 
 
         if (!tmp.areMatricesEqual(resultMult1, result))

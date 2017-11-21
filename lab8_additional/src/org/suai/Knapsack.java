@@ -54,7 +54,6 @@ public class Knapsack {
         }
     }
 
-
     public void threadedFindBestCombination(ArrayList<Item> items, int threadCount) throws Exception {
         bestItems.clear();
         bestCost = 0;
