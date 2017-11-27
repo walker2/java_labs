@@ -12,9 +12,9 @@
 // TODO: Распихать отчеты по src
 // TODO: Прикрутить maven
 // TODO: Сделать скриншоты по чётче
+package client;
 
-package lab12.src.client;
-import lab12.src.ui.GraphicalInterface;
+import ui.GraphicalInterface;
 
 import java.net.*;
 import java.io.*;

@@ -1,4 +1,4 @@
-package lab8_additional.src.org.suai;
+package org.suai;
 
 import java.util.ArrayList;
 import java.util.Iterator;

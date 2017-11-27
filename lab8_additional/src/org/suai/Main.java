@@ -1,6 +1,6 @@
-package lab8_additional.src.org.suai;
+package org.suai;
 
-import lab8_additional.src.utils.TimeWatch;
+import utils.TimeWatch;
 
 import java.util.ArrayList;
 

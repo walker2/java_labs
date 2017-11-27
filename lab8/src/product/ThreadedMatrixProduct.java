@@ -1,7 +1,7 @@
-package lab8.src.product;
+package product;
 
-import lab8.src.matrix.*;
-import lab8.src.utils.*;
+import matrix.*;
+import utils.*;
 
 import java.util.Random;
 

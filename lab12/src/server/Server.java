@@ -1,4 +1,4 @@
-package lab12.src.server;
+package server;
 
 import java.net.*;
 import java.io.*;

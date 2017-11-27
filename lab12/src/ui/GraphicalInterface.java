@@ -1,5 +1,5 @@
-package lab12.src.ui;
-import lab12.src.client.Client;
+package ui;
+import client.Client;
 
 import javax.swing.*;
 import javax.swing.text.DefaultCaret;

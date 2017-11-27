@@ -1,4 +1,4 @@
-package lab9.src.banking.accounts;
+package banking.accounts;
 
 public class Account {
 

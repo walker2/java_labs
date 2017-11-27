@@ -1,4 +1,4 @@
-package lab9_additional.src.filestat;
+package filestat;
 
 import java.util.HashMap;
 import java.util.Map;

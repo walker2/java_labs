@@ -1,4 +1,4 @@
-package lab8.src.matrix;
+package matrix;
 
 public interface IMatrix {
 
