@@ -54,3 +54,17 @@ L
 lab12/src/client/Client.java,c/0/c02a1ff61cc94bbe67f18f65a84a18a0400bf81f
 T
 $lab12/src/ui/GraphicalInterface.java,e/1/e10d56791fbb597c64f8efd01e9241e418de044c
+k
+;msg_board/src/main/java/org/msg_board/web/LoginServlet.java,9/6/96343b88e4c530cf8ee727e86d8ab8445f69453f
+a
+1msg_board/src/main/webapp/WEB-INF/guest/board.jsp,c/e/ce90128d17b83745960d3a1e3efc403b48c15b57
+G
+msg_board/msg_board.iml,a/5/a5205f51fb8373901258434d007c6fce731adc6f
+S
+#msg_board/src/main/webapp/login.jsp,d/a/da9875e14cc1b9234e228662225113882a98269a
+Z
+*.idea/artifacts/msg_board_war_exploded.xml,f/2/f2555017b2564bafe2de819819e6e4f25c0a129e
+Y
+)msg_board/src/main/webapp/WEB-INF/web.xml,8/3/83c7979159808c72a997e38eb6397a8cb120f0a6
+`
+0msg_board/src/main/webapp/WEB-INF/user/board.jsp,f/5/f500c8edf1988fb79af817baafadf5932ccfb479
