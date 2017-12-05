@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SonarLintProjectSettings">
+    <option name="additionalProperties">
+      <map>
+        <entry key="sonar.issue.ignore.multicriteria" value="e1" />
+        <entry key="sonar.issue.ignore.multicriteria.e1.resourceKey" value="**/*.java" />
+        <entry key="sonar.issue.ignore.multicriteria.e1.ruleKey" value="squid:S106" />
+      </map>
+    </option>
+  </component>
+</project>

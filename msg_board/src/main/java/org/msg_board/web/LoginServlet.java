@@ -17,7 +17,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     public void init(ServletConfig config) {
-        userService.loadFromFile("/home/andrew/git/msg_board/data/users");
+        userService.loadFromFile("/home/andrewshipilo/IdeaProjects/java_labs/msg_board/data/users");
     }
 
     @Override
