@@ -1,9 +1,4 @@
-Abraham:null:1251251251;1251251251;
-Adolf:null:1488;1512512;1512512;
-BobRoss:bob:151623672347;151623672347;151623672347;
-CJ:cj:12414141;
-FAFAS:null:412412;
-Mussolini:null:6161361236123;
-Poka:null:125125125;
-Privet:null:15125125;
-Putin:null:88002341;
+Cat:hidden_cat:6452121;
+Girl:girl_with_cigarette:51251;
+Luciano:luciano_pavarotti:515421541;
+Obama:b_obama:412;659;555;

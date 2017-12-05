@@ -23,6 +23,11 @@ import java.util.logging.Logger;
     В качестве контейнера сервлетов рекомендуется использовать либо сервер Tomcat, либо сервер Jetty
 
     NB: Синхронизация при работе нескольких пользователей с одной записной книжкой.
+
+    Доп:
+    На сервере хранится набор аватарок. Добавить возможность при добавлении новой записи с помощью радиокнопки
+    выбрать аватарку. Аватарки должны отображаться в списке.
+
 */
 
 public class PhoneBook extends HttpServlet {
@@ -32,7 +37,7 @@ public class PhoneBook extends HttpServlet {
     private static TreeMap<String, ArrayList<String>> phoneBook = new TreeMap<>();
     private static TreeMap<String, String> avatars = new TreeMap<>();
 
-    private static String dataPath = "/home/andrew/git/java_labs/lab13";
+    private static String dataPath = "/home/andrewshipilo/IdeaProjects/java_labs/lab13"; //TODO: to env variables
 
     @Override
     public void init() {
@@ -108,7 +113,6 @@ public class PhoneBook extends HttpServlet {
                         out.println("<a href=\"/phonebook\"> Back to list</a>\n");
                     } else {
                         add(name, nums);
-
                         avatars.put(name, avatar);
                         out.println(generateList());
                     }
@@ -132,6 +136,7 @@ public class PhoneBook extends HttpServlet {
         list.append("<h2>Contacts</h2> <table class=\"table table-hover\"> " +
                 "    <thead>\n" +
                 "      <tr>\n" +
+                "        <th>Avatar</th>\n" +
                 "        <th>Name</th>\n" +
                 "        <th>Numbers</th>\n" +
                 "      </tr>\n" +
@@ -144,15 +149,18 @@ public class PhoneBook extends HttpServlet {
             String firstLetter = Character.toString(name.charAt(0)).toLowerCase();
             list.append("<tr>");
 
+            list.append("<td><img src=\"http://localhost:9090/data/").append(avatars.get(name))
+                    .append(".jpg\" ").append("width=\"50\" height = \"50\">");
             list.append("<td><img src=\"http://cdn.mysitemyway.com/icons-watermarks/simple-black/alphanum" +
                     "/alphanum_uppercase-letter-").append(firstLetter).append(
                     "/alphanum_uppercase-letter-").append(firstLetter).append(
-                    "_simple-black_128x128.png\"").append("width=\"24\" height = \"24\">").append(name.subSequence(1, name.length())).append("</td>");
+                    "_simple-black_128x128.png\"").append("width=\"24\" height = \"24\">")
+                    .append(name.subSequence(1, name.length())).append("</td>");
 
             list.append("<td>");
             for (String number : numbers) {
-                list.append(number).append("; ");
-            }
+                list.append(number).append("; <br>");
+            } //TODO: Multiple nubmers in td's
             list.append("</td>");
 
             list.append("</tr>");
@@ -172,7 +180,15 @@ public class PhoneBook extends HttpServlet {
                 "Your name: <input type=\"text\" name=\"name\" class=\"form-control\"  placeholder=\"Enter name\"><br>" +
                 "Phone number: <input type=\"text\" name=\"numbers\" class=\"form-control\"  placeholder=\"Enter number\">" +
                 "<br>You can add multiple numbers by separating them with \':\' symbol <br>" +
-                "<input type=\"submit\" class=\"btn btn-primary btn-block\" value=\"Submit\"><br>" +
+                "<input name=\"avatar\" type=\"radio\" value=\"b_obama\">" +
+                "<img src=\"http://localhost:9090/data/b_obama.jpg\" width=\"100\" height = \"100\">" +
+                "<input name=\"avatar\" type=\"radio\" value=\"girl_with_cigarette\">" +
+                "<img src=\"http://localhost:9090/data/girl_with_cigarette.jpg\" width=\"100\" height = \"100\">" +
+                "<input name=\"avatar\" type=\"radio\" value=\"hidden_cat\">" +
+                "<img src=\"http://localhost:9090/data/hidden_cat.jpg\" width=\"100\" height = \"100\">" +
+                "<input name=\"avatar\" type=\"radio\" value=\"luciano_pavarotti\">" +
+                "<img src=\"http://localhost:9090/data/luciano_pavarotti.jpg\" width=\"100\" height = \"100\"><br>" +
+                "<input type=\"submit\" class=\"btn btn-primary btn-block\" value=\"Submit\">" +
                 "</form>\n" +
                 "</div>";
 
