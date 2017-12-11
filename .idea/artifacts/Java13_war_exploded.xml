@@ -31,8 +31,6 @@
           <element id="file-copy" path="/usr/share/tomcat8/lib/tomcat-util-scan.jar" />
           <element id="file-copy" path="/usr/share/tomcat8/lib/tomcat-websocket.jar" />
           <element id="file-copy" path="/usr/share/tomcat8/lib/catalina-storeconfig.jar" />
-          <element id="file-copy" path="/usr/share/tomcat8/lib/commons-dbcp.jar" />
-          <element id="file-copy" path="/usr/share/tomcat8/lib/commons-pool.jar" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="Java13/web/Web" />

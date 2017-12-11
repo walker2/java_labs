@@ -37,7 +37,7 @@ public class PhoneBook extends HttpServlet {
     private static TreeMap<String, ArrayList<String>> phoneBook = new TreeMap<>();
     private static TreeMap<String, String> avatars = new TreeMap<>();
 
-    private static String dataPath = "/home/andrewshipilo/IdeaProjects/java_labs/lab13"; //TODO: to env variables
+    private static String dataPath = "/home/andrew/git/java_labs/lab13"; //TODO: to env variables
 
     @Override
     public void init() {
@@ -149,7 +149,7 @@ public class PhoneBook extends HttpServlet {
             String firstLetter = Character.toString(name.charAt(0)).toLowerCase();
             list.append("<tr>");
 
-            list.append("<td><img src=\"http://localhost:9090/data/").append(avatars.get(name))
+            list.append("<td><img src=\"http://localhost:8080/data/").append(avatars.get(name))
                     .append(".jpg\" ").append("width=\"50\" height = \"50\">");
             list.append("<td><img src=\"http://cdn.mysitemyway.com/icons-watermarks/simple-black/alphanum" +
                     "/alphanum_uppercase-letter-").append(firstLetter).append(
@@ -160,7 +160,7 @@ public class PhoneBook extends HttpServlet {
             list.append("<td>");
             for (String number : numbers) {
                 list.append(number).append("; <br>");
-            } //TODO: Multiple nubmers in td's
+            }
             list.append("</td>");
 
             list.append("</tr>");
@@ -181,13 +181,13 @@ public class PhoneBook extends HttpServlet {
                 "Phone number: <input type=\"text\" name=\"numbers\" class=\"form-control\"  placeholder=\"Enter number\">" +
                 "<br>You can add multiple numbers by separating them with \':\' symbol <br>" +
                 "<input name=\"avatar\" type=\"radio\" value=\"b_obama\">" +
-                "<img src=\"http://localhost:9090/data/b_obama.jpg\" width=\"100\" height = \"100\">" +
+                "<img src=\"http://localhost:8080/data/b_obama.jpg\" width=\"100\" height = \"100\">" +
                 "<input name=\"avatar\" type=\"radio\" value=\"girl_with_cigarette\">" +
-                "<img src=\"http://localhost:9090/data/girl_with_cigarette.jpg\" width=\"100\" height = \"100\">" +
+                "<img src=\"http://localhost:8080/data/girl_with_cigarette.jpg\" width=\"100\" height = \"100\">" +
                 "<input name=\"avatar\" type=\"radio\" value=\"hidden_cat\">" +
-                "<img src=\"http://localhost:9090/data/hidden_cat.jpg\" width=\"100\" height = \"100\">" +
+                "<img src=\"http://localhost:8080/data/hidden_cat.jpg\" width=\"100\" height = \"100\">" +
                 "<input name=\"avatar\" type=\"radio\" value=\"luciano_pavarotti\">" +
-                "<img src=\"http://localhost:9090/data/luciano_pavarotti.jpg\" width=\"100\" height = \"100\"><br>" +
+                "<img src=\"http://localhost:8080/data/luciano_pavarotti.jpg\" width=\"100\" height = \"100\"><br>" +
                 "<input type=\"submit\" class=\"btn btn-primary btn-block\" value=\"Submit\">" +
                 "</form>\n" +
                 "</div>";

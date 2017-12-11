@@ -83,19 +83,17 @@
 
 \section{Реализация}
 Программа реализована с использованием контейнера сервлетов Apache Tomcat.
-
-Главный класс программы наследуется от класса HttpServlet и в методе doGet() в зависимости от запроса генерирует соответствующий ответ в виде HTML файла.
-Свзязь сервлета с URL определена в файле web.xml.
-Информация о записях хранится в текстовом файле. Записи загружаются из файла в методе init() сервлета и сохраняются в него в методе destroy().
+Класс PhoneBook наследуется от класс HttpServlet, у него перегружен метод doGet(), который отвечает за отправку Html страницы клиенту. Он, взависимости от запроса, генерирует соответствующий ответ. Этот сервлет связан с URL в файле web.xml. 
+Все файлы необходимые для работы с приложением находятся в папке data. Там же и находятся картинки (для доп. задания) и список контактов в виде текстового файла, он загружается при вызове метода init класса PhoneBook и сохраняется после вызова destroy().
 
 \section{Инструкция}
-После запуска сервера при посещении страницы localhost:8080/java-13/phonebook перед пользователем откроется страница с записной книжкой. В верху присутствует ссылка Add на форму добавления новой записи.
+После запуска сервера при посещении страницы localhost:8080/phonebook/ перед пользователем откроется страница с записной книжкой. Снизу присутствует кнопка Add, которая пересылает на форму добавления нового контакта. 
 \section{Тестирование}
 
 \subsection{Главная страница с записной книжкой}
 \begin{figure}[H]
 	\begin{flushleft}
-		\centerline{\includegraphics[scale=0.4]{phonebook.jpg}}
+		\centerline{\includegraphics[scale=0.4]{phonebook.png}}
 		\caption{Записная книжка}
 	\end{flushleft}
 \end{figure}
@@ -104,7 +102,7 @@
 \subsection{Добавление новой записи}
 \begin{figure}[H]
 	\begin{flushleft}
-		\centerline{\includegraphics[scale=0.4]{add.jpg}}
+		\centerline{\includegraphics[scale=0.4]{add.png}}
 		\caption{Страница добавления новой записи}
 	\end{flushleft}
 \end{figure}
@@ -112,7 +110,7 @@
 \subsection{Проверка работоспособности добавления новой записи}
 \begin{figure}[H]
 	\begin{flushleft}
-		\centerline{\includegraphics[scale=0.4]{phonebooknew.jpg}}
+		\centerline{\includegraphics[scale=0.4]{phonebooknew.png}}
 		\caption{Записная книжка с только что добавленной записью}
 	\end{flushleft}
 \end{figure}

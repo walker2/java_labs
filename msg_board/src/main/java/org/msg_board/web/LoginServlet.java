@@ -13,11 +13,11 @@ public class LoginServlet extends HttpServlet {
 
     private static Logger logger = Logger.getLogger(LoginServlet.class.getName());
 
-    private static UserService userService = new UserService();
+    public static UserService userService = new UserService();
 
     @Override
     public void init(ServletConfig config) {
-        userService.loadFromFile("/home/andrewshipilo/IdeaProjects/java_labs/msg_board/data/users");
+        userService.loadFromFile("/home/andrew/git/java_labs/msg_board/data/users");
     }
 
     @Override

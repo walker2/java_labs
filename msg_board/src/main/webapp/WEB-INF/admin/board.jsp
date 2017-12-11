@@ -45,7 +45,7 @@
                     <a class="nav-link" href="../../new-message.jsp">Add message</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="add-user.jsp">User Management</a>
+                    <a class="nav-link" href="/users">User Management</a>
                 </li>
             </ul>
         </div>

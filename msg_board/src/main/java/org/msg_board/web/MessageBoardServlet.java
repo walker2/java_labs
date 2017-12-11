@@ -1,5 +1,5 @@
 package org.msg_board.web;
-/* Суперпользователь -- добавляет пользю, удалять и удалять объяв. */
+/* Суперпользователь -- добавлять и удалять пользователей */
 import org.msg_board.model.Message;
 import org.msg_board.service.MessageService;
 
@@ -39,7 +39,7 @@ public class MessageBoardServlet extends HttpServlet {
         } else if (session.getAttribute("user").equals("admin")) {
             logger.info("Admin view");
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/guest/board.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/board.jsp");
             try {
                 dispatcher.forward(request, response);
             } catch (ServletException | IOException e) {
