@@ -112,11 +112,34 @@
 Для просмотра файловой системы собеседника необходимо ввести команды @ls, @cd, @pwd. 
 \section{Тестирование}
 
-\subsection{Пример работы программы}
+\subsection{Запуск клиента}
 \begin{figure}[H]
 	\begin{flushleft}
-		\centerline{\includegraphics[scale=0.6]{lab11_client.png}}
-		\caption{Пример подключения к серверу и просмотра его файловой через команду @ls}
+		\centerline{\includegraphics[scale=0.65]{clientload.png}}
+		\caption{Пример запуска клиента и подключения к серверу}
+	\end{flushleft}
+\end{figure}
+
+\subsection{Смена имени и отправка сообщения}
+\begin{figure}[H]
+	\begin{flushleft}
+		\centerline{\includegraphics[scale=0.7]{nameandsend.png}}
+		\caption{Смена имени командой @name и отправка сообщения на сервер}
+	\end{flushleft}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{flushleft}
+		\centerline{\includegraphics[scale=0.7]{servermessage.png}}
+		\caption{Сообщение пришло и видно на сервере}
+	\end{flushleft}
+\end{figure}
+
+\subsection{Файловая система}
+\begin{figure}[H]
+	\begin{flushleft}
+		\centerline{\includegraphics[scale=0.7]{cdrespond.png}}
+		\caption{Введена команда @cd /usr/, сервер сменил текущую папку и прислал содержимое папки клиенту}
 	\end{flushleft}
 \end{figure}
 
